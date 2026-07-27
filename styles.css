@@ -621,3 +621,7 @@ h1,h2,h3,h4,.cal-ev b,.orbit-core,.story-body h3,.stat-big,.cal-month{font-varia
 .post-banner{position:relative;overflow:hidden}
 .post-banner-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .post-banner .post-cat{position:relative;z-index:2}
+
+/* two carousels, opposite directions + different speeds */
+.marquee + .marquee{margin-top:16px}
+.marquee-track.rev{animation-duration:52s;animation-direction:reverse}
