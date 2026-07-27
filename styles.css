@@ -437,3 +437,84 @@ input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;bac
 .article-cta h3{margin-bottom:8px}
 .article-cta p{color:var(--ink-2);margin-bottom:18px;font-size:15px}
 @media (max-width:720px){.post-grid{grid-template-columns:1fr}.article-body{font-size:16px}}
+
+/* ===== Mobile refinement + premium polish layer ===== */
+/* Drawer CTA hidden on desktop; surfaced inside the mobile menu */
+.nav-drawer-cta{display:none}
+
+/* Premium: clear keyboard focus rings without fighting existing input styles */
+:where(a,button,input,select,textarea,[tabindex]):focus-visible{outline:2px solid var(--clay);outline-offset:2px;border-radius:8px}
+.logo{transition:opacity .18s ease}
+.logo:hover{opacity:.82}
+
+@media (max-width:900px){
+  section{padding:84px 0}
+  section.tight{padding:56px 0}
+  html{scroll-padding-top:86px}
+}
+
+@media (max-width:720px){
+  /* Nav: logo + menu only; CTA moves into the drawer */
+  .nav{top:12px}
+  .nav-inner{width:calc(100% - 30px);padding:9px 9px 9px 18px;gap:12px}
+  .nav-cta .btn-primary{display:none}
+  .nav-links{gap:2px;padding:12px}
+  .nav-links a{padding:12px 14px;font-size:14px;border-radius:12px}
+  .nav-links.open .nav-drawer-cta{display:inline-flex;width:100%;margin-top:8px;font-size:14.5px}
+
+  /* Type scale for phones */
+  h1{font-size:clamp(30px,8.4vw,40px)}
+  h2{font-size:clamp(25px,6.6vw,34px)}
+  .lede,.hero .lede{font-size:16.5px}
+  .section-head{margin-bottom:38px}
+
+  /* Full-width stacked buttons = big tap targets */
+  .hero-actions{flex-direction:column;gap:10px;margin-top:28px}
+  .hero-actions .btn{width:100%}
+  .btn-lg,.btn-lg.btn-ghost{font-size:15px;padding:14px 20px}
+
+  /* Rhythm + panels */
+  section{padding:62px 0}
+  section.tight{padding:46px 0}
+  .book-panel,.founder-card,.apply-panel{padding:26px}
+  .cta-band{padding:48px 22px}
+  .calc,.cal-stack{padding:20px}
+
+  /* Calendar embed height trimmed for phones */
+  .cal-frame iframe{height:560px}
+
+  /* Founder card: center the portrait above the copy */
+  .founder-card .founder-photo{justify-self:center;max-width:260px}
+  .founder-stats{gap:20px 26px}
+
+  /* Footer stacks cleanly */
+  .foot-top{flex-direction:column;gap:26px}
+  .foot-cols{gap:28px 40px}
+  .foot-bottom{flex-direction:column;gap:10px;align-items:flex-start}
+
+  /* Carousels */
+  .tcard{width:280px;padding:20px}
+  .story-metrics{gap:8px}
+}
+
+@media (max-width:480px){
+  .wrap{padding:0 16px}
+  .nav-inner{width:calc(100% - 22px);padding:8px 8px 8px 15px;gap:8px}
+  .logo{font-size:19px}
+  .logo-mark{width:24px;height:24px}
+  .menu-btn{padding:8px 12px}
+  h1{font-size:clamp(26px,8vw,33px)}
+  h2{font-size:23px}
+  h3{font-size:20px}
+  section{padding:54px 0}
+  .section-head{margin-bottom:32px}
+  .book-panel,.founder-card,.apply-panel,.calc,.cal-stack{padding:18px}
+  .cta-band{padding:38px 18px}
+  .cal-frame iframe{height:520px}
+  .founder-card .founder-photo{max-width:100%}
+  .stat-big{font-size:26px}
+  .story-metrics{flex-wrap:wrap}
+  .tcard{width:82vw;max-width:300px}
+  .fit-list li,.book-list li{font-size:14px}
+  .overlay-card{padding:22px}
+}
