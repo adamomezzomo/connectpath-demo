@@ -603,3 +603,8 @@ h1,h2,h3,h4,.cal-ev b,.orbit-core,.story-body h3,.stat-big,.cal-month{font-varia
   /* centered-text heroes: a bit more presence */
   .hero-anim.center h1{letter-spacing:-0.02em}
 }
+
+/* image logo lockup (replaces inline SVG mark) */
+.logo-img{height:30px;width:auto;display:block}
+.foot-brand .logo-img{height:34px}
+@media (max-width:480px){.logo-img{height:26px}}
