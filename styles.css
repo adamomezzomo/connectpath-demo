@@ -552,3 +552,8 @@ input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;bac
 @media (max-width:980px){.grid-4 .pillar{margin-top:0 !important}}
 @media (max-width:720px){.orbit{transform:scale(.9)}.orbit-arrow{transform:rotate(90deg)}}
 @media (max-width:480px){.orbit{transform:scale(.78);margin:-26px 0}}
+
+/* Ready-to-search: live pulsing indicator */
+.tag.ready{display:inline-flex;align-items:center;gap:7px}
+.tag.ready::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--sage);flex-shrink:0;animation:pulse-dot 1.9s ease-in-out infinite}
+@keyframes pulse-dot{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(95,125,84,0.55)}50%{opacity:.55;box-shadow:0 0 0 5px rgba(95,125,84,0)}}
