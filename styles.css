@@ -608,3 +608,9 @@ h1,h2,h3,h4,.cal-ev b,.orbit-core,.story-body h3,.stat-big,.cal-month{font-varia
 .logo-img{height:30px;width:auto;display:block}
 .foot-brand .logo-img{height:34px}
 @media (max-width:480px){.logo-img{height:26px}}
+
+/* company website links (feature font) */
+.story-site{display:block;font-family:var(--mono);font-size:11px;letter-spacing:0.02em;color:var(--clay);text-decoration:none;margin:-2px 0 10px}
+.story-site:hover{text-decoration:underline}
+.bp-site{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:0.02em;color:var(--clay-soft);text-decoration:none;margin:3px 0 5px}
+.bp-site:hover{text-decoration:underline;color:#a9bce0}
