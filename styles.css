@@ -605,7 +605,7 @@ h1,h2,h3,h4,.cal-ev b,.orbit-core,.story-body h3,.stat-big,.cal-month{font-varia
 }
 
 /* image logo lockup (replaces inline SVG mark) */
-.logo-img{height:34px;width:auto;display:block}
+.logo-img{height:27px;width:auto;display:block}
 .foot-brand .logo-img{height:58px}
 @media (max-width:480px){.logo-img{height:24px}}
 
