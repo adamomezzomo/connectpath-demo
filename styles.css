@@ -518,3 +518,37 @@ input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;bac
   .fit-list li,.book-list li{font-size:14px}
   .overlay-card{padding:22px}
 }
+
+/* ===== Loom reconciliation: hero highlight, diagonal pillars, dark process, orbit compare ===== */
+.hl{background:linear-gradient(transparent 62%,rgba(43,74,143,0.20) 0);background-size:0% 100%;background-repeat:no-repeat;animation:hlgrow .9s var(--ease) forwards;animation-delay:.55s;border-radius:2px}
+.hl-b{animation-delay:.85s;background-image:linear-gradient(transparent 62%,rgba(43,74,143,0.28) 0)}
+@keyframes hlgrow{to{background-size:100% 100%}}
+
+/* mechanism cards: numbers removed, staggered diagonally so they read as benefits */
+.grid-4 .pillar:nth-child(2){margin-top:16px}
+.grid-4 .pillar:nth-child(3){margin-top:32px}
+.grid-4 .pillar:nth-child(4){margin-top:48px}
+
+/* dark Google-Calendar-style process block */
+.cal-stack-dark{background:var(--dark);border-color:var(--dark-2);color:#fff}
+.cal-stack-dark .cal-stack-head{border-bottom-color:rgba(255,255,255,0.12)}
+.cal-stack-dark .cal-month{color:#fff}
+.cal-stack-dark .cal-note{color:rgba(255,255,255,0.55)}
+.cal-stack-dark .cal-dn{color:rgba(255,255,255,0.42)}
+
+/* traditional-agency vs us: orbiting bubbles */
+.orbit-compare{display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap}
+.orbit{position:relative;width:320px;height:320px;flex-shrink:0}
+.orbit::before{content:"";position:absolute;inset:36px;border-radius:50%;border:1px dashed var(--line-2);opacity:.55}
+.orbit-core{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:152px;height:152px;border-radius:50%;display:flex;align-items:center;justify-content:center;text-align:center;background:var(--card-2);border:1px solid var(--line);box-shadow:var(--shadow);z-index:2}
+.orbit-core.good{background:linear-gradient(160deg,rgba(43,74,143,0.14),rgba(43,74,143,0.04));border-color:rgba(43,74,143,0.3)}
+.orbit-core-lab{font-family:var(--serif);font-size:19px;line-height:1.15;padding:0 16px}
+.orbit-chip{position:absolute;top:50%;left:50%;transform:translate(calc(-50% + var(--x)),calc(-50% + var(--y)))}
+.orbit-chip b{display:block;font-family:var(--mono);font-weight:500;font-size:11px;padding:8px 13px;border-radius:var(--pill);white-space:nowrap;background:#fff;box-shadow:var(--shadow-sm);animation:floaty 7s ease-in-out infinite;animation-delay:var(--d,0s)}
+.orbit-chip.bad b{color:#bb6b52;border:1px solid rgba(187,107,82,0.3)}
+.orbit-chip.good b{color:var(--sage);border:1px solid rgba(95,125,84,0.34)}
+.orbit-arrow{font-size:28px;color:var(--muted);flex-shrink:0}
+
+@media (max-width:980px){.grid-4 .pillar{margin-top:0 !important}}
+@media (max-width:720px){.orbit{transform:scale(.9)}.orbit-arrow{transform:rotate(90deg)}}
+@media (max-width:480px){.orbit{transform:scale(.78);margin:-26px 0}}
