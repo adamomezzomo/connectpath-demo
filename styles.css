@@ -536,24 +536,46 @@ input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;bac
 .cal-stack-dark .cal-note{color:rgba(255,255,255,0.55)}
 .cal-stack-dark .cal-dn{color:rgba(255,255,255,0.42)}
 
-/* traditional-agency vs us: orbiting bubbles */
-.orbit-compare{display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap}
-.orbit{position:relative;width:320px;height:320px;flex-shrink:0}
-.orbit::before{content:"";position:absolute;inset:36px;border-radius:50%;border:1px dashed var(--line-2);opacity:.55}
-.orbit-core{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:152px;height:152px;border-radius:50%;display:flex;align-items:center;justify-content:center;text-align:center;background:var(--card-2);border:1px solid var(--line);box-shadow:var(--shadow);z-index:2}
-.orbit-core.good{background:linear-gradient(160deg,rgba(43,74,143,0.14),rgba(43,74,143,0.04));border-color:rgba(43,74,143,0.3)}
-.orbit-core-lab{font-family:var(--serif);font-size:19px;line-height:1.15;padding:0 16px}
-.orbit-chip{position:absolute;top:50%;left:50%;transform:translate(calc(-50% + var(--x)),calc(-50% + var(--y)))}
-.orbit-chip b{display:block;font-family:var(--mono);font-weight:500;font-size:11px;padding:8px 13px;border-radius:var(--pill);white-space:nowrap;background:#fff;box-shadow:var(--shadow-sm);animation:floaty 7s ease-in-out infinite;animation-delay:var(--d,0s)}
-.orbit-chip.bad b{color:#bb6b52;border:1px solid rgba(187,107,82,0.3)}
-.orbit-chip.good b{color:var(--sage);border:1px solid rgba(95,125,84,0.34)}
-.orbit-arrow{font-size:28px;color:var(--muted);flex-shrink:0}
+
 
 @media (max-width:980px){.grid-4 .pillar{margin-top:0 !important}}
-@media (max-width:720px){.orbit{transform:scale(.9)}.orbit-arrow{transform:rotate(90deg)}}
-@media (max-width:480px){.orbit{transform:scale(.78);margin:-26px 0}}
+
+
 
 /* Ready-to-search: live pulsing indicator */
 .tag.ready{display:inline-flex;align-items:center;gap:7px}
 .tag.ready::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--sage);flex-shrink:0;animation:pulse-dot 1.9s ease-in-out infinite}
 @keyframes pulse-dot{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(95,125,84,0.55)}50%{opacity:.55;box-shadow:0 0 0 5px rgba(95,125,84,0)}}
+
+/* ===== Orbit compare v2 + Loom screenshot fixes ===== */
+.orbit-compare{display:flex;flex-direction:column;align-items:center;gap:26px}
+.orbit{position:relative;width:340px;height:280px}
+.orbit-ring{position:absolute;top:50%;left:50%;width:250px;height:250px;margin:-125px 0 0 -125px;border-radius:50%;border:1px dashed var(--line-2);animation:o-spin 60s linear infinite}
+.orbit-new .orbit-ring{width:264px;height:264px;margin:-132px 0 0 -132px;border-color:rgba(43,74,143,0.4);animation-duration:52s;animation-direction:reverse}
+@keyframes o-spin{to{transform:rotate(360deg)}}
+.orbit-core{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:128px;height:128px;border-radius:50%;display:flex;align-items:center;justify-content:center;text-align:center;padding:0 16px;background:#fff;border:1px solid var(--line);box-shadow:var(--shadow-sm);z-index:2;font-family:var(--serif);font-size:17px;line-height:1.15;color:var(--ink-2)}
+.orbit-core.good{width:144px;height:144px;padding:0 18px;background:linear-gradient(155deg,#3f66ae,#2b4a8f 58%,#20386e);border:0;color:#fff;font-size:20px;box-shadow:0 20px 44px -12px rgba(43,74,143,0.65),0 0 0 7px rgba(43,74,143,0.1)}
+.ochip{position:absolute;top:50%;left:50%;transform:translate(calc(-50% + var(--x)),calc(-50% + var(--y)));z-index:3}
+.ochip b{display:block;font-family:var(--mono);font-weight:500;font-size:11px;padding:8px 13px;border-radius:var(--pill);white-space:nowrap;background:#fff;animation:floaty 6.5s ease-in-out infinite;animation-delay:var(--d,0s)}
+.ochip.bad b{color:#b5563c;border:1px solid rgba(187,107,82,0.32);box-shadow:0 6px 16px -8px rgba(187,107,82,0.4)}
+.ochip.good b{color:var(--clay);border:1px solid rgba(43,74,143,0.42);box-shadow:0 10px 22px -8px rgba(43,74,143,0.5);font-weight:600}
+.orbit-vs{font-family:var(--mono);font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted)}
+@media (max-width:480px){.orbit{transform:scale(.82)}}
+@media (max-width:380px){.orbit{transform:scale(.7)}}
+
+/* fix ff ligature in serif headings (e.g. "Offer") */
+h1,h2,h3,h4,.cal-ev b,.orbit-core,.story-body h3,.stat-big,.cal-month{font-variant-ligatures:none}
+
+/* mechanism cards: clear staggered diagonal entrance */
+.grid-4 .pillar.reveal:not(.in){opacity:0;transform:translate(-16px,26px)}
+
+/* proof logos: consistent relative sizing, no boxes */
+.story-logo-img{height:30px;max-width:158px;object-fit:contain}
+
+/* mobile calendar clarity */
+@media (max-width:720px){
+  .cal-ev{padding:13px 15px}
+  .cal-ev .cal-d{opacity:1;font-weight:600;letter-spacing:0.03em}
+  .cal-ev b{font-size:16px}
+  .cal-stack-head{gap:6px}
+}
