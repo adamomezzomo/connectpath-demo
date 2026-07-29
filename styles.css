@@ -770,4 +770,4 @@ h1,h2,h3,h4,.cal-ev b,.orbit-core,.story-body h3,.stat-big,.cal-month{font-varia
 .form-success{background:#fff;border:1px solid var(--line);border-radius:16px;padding:34px;text-align:center;box-shadow:var(--shadow-sm)}
 .form-success h3{font-size:22px;margin-bottom:8px}
 .form-success p{color:var(--ink-2);font-size:15px;max-width:430px;margin:0 auto}
-.bg-canvas{position:absolute;inset:0;z-index:0;pointer-events:none;opacity:0;transition:opacity .7s ease}.bg-canvas.on{opacity:1}[data-bg]{position:relative}[data-bg]>*:not(.bg-canvas){position:relative;z-index:1}.hero.has-canvas-bg::before{display:none}
+.bg-canvas{position:absolute;inset:0;z-index:0;pointer-events:none;opacity:0;transition:opacity .7s ease;-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 15%,#000 85%,transparent 100%);mask-image:linear-gradient(180deg,transparent 0,#000 15%,#000 85%,transparent 100%)}.bg-canvas.on{opacity:1}[data-bg]{position:relative}[data-bg]>*:not(.bg-canvas){position:relative;z-index:1}.hero.has-canvas-bg::before{display:none}
