@@ -64,10 +64,11 @@ const countIO = new IntersectionObserver(
 );
 document.querySelectorAll("[data-count]").forEach((el) => countIO.observe(el));
 
-// Forms route to the booking calendar.
-// Set FORM_ENDPOINT to your GoHighLevel webhook or Formspree URL to also capture leads.
-const FORM_ENDPOINT = "";
-document.querySelectorAll("form[data-book]").forEach((form) => {
+// Forms email to the ConnectPath inbox via FormSubmit, then route the visitor onward.
+// FORM_ENDPOINT is the FormSubmit AJAX endpoint tied to alland@connectpath.ca.
+// (The first submission triggers a one-time confirmation email that must be clicked to activate delivery.)
+const FORM_ENDPOINT = "https://formsubmit.co/ajax/alland@connectpath.ca";
+document.querySelectorAll("form[data-email]").forEach((form) => {
   form.addEventListener("submit", async (ev) => {
     ev.preventDefault();
     const btn = form.querySelector("button[type=submit]");
@@ -77,12 +78,19 @@ document.querySelectorAll("form[data-book]").forEach((form) => {
         const data = Object.fromEntries(new FormData(form).entries());
         await fetch(FORM_ENDPOINT, {
           method: "POST",
-          headers: { "Content-Type": "application/json" },
+          headers: { "Content-Type": "application/json", "Accept": "application/json" },
           body: JSON.stringify(data),
         });
       } catch (err) { console.error("Form submit failed:", err); }
     }
-    window.location.href = form.dataset.book;
+    if (form.dataset.book) {
+      window.location.href = form.dataset.book;
+      return;
+    }
+    const box = document.createElement("div");
+    box.className = "form-success";
+    box.innerHTML = "<h3>Thanks, we\u2019ve got it.</h3><p>Your submission is on its way to the ConnectPath team. We\u2019ll be in touch by email shortly.</p>";
+    form.replaceWith(box);
   });
 });
 
